@@ -1,157 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ferris-Wheel</title>
     <style>
-        body{
-            background-color: grey;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; 
+        margin: 0; 
+        overflow: hidden; 
+      }
+      .wheel {
+        border: 2px solid black;
+        border-radius: 50%;
+        margin-left: 50px;
+        position: absolute;
+        height: 55vw;
+        width: 55vw;
+        max-width: 500px;
+        max-height: 500px;
+        animation-name: wheel;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
 
-        .wheel{
-            height: 1000px;
-            width: 1000px;
-            border-radius: 50%;
-            position: fixed;
-            margin: auto;
-            left: 25%;
-            border: 10px solid black;
-            margin: 40px auto;
-        }
+      .line {
+        background-color: black;
+        width: 50%;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0% 0%;
+      }
 
-        .strut1{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 500px;
-            width: 10px;
-            background-color: black;
-            transform-origin: center bottom;
-            transform: translate(-50%, -100%) rotate(0deg);
-        }
-        
-        .strut2{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 500px;
-            width: 10px;
-            background-color: black;
-            transform-origin: center bottom;
-            transform: translate(-50%, -100%) rotate(60deg);
-        }
+      .line:nth-of-type(2) {
+        transform: rotate(60deg);
+      }
+      .line:nth-of-type(3) {
+        transform: rotate(120deg);
+      }
+      .line:nth-of-type(4) {
+        transform: rotate(180deg);
+      }
+      .line:nth-of-type(5) {
+        transform: rotate(240deg);
+      }
+      .line:nth-of-type(6) {
+        transform: rotate(300deg);
+      }
 
-        .strut3{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 500px;
-            width: 10px;
-            background-color: black;
-            transform-origin: center bottom;
-            transform: translate(-50%, -100%) rotate(120deg);
-        }
+      .cabin {
+        background-color: red;
+        width: 20%;
+        height: 20%;
+        position: absolute;
+        border: 2px solid;
+        transform-origin: 50% 0%;
+        animation: cabins 10s ease-in-out infinite;
+      }
 
-        .strut4{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 500px;
-            width: 10px;
-            background-color: black;
-            transform-origin: center bottom;
-            transform: translate(-50%, -100%) rotate(180deg);
-        }
+      .cabin:nth-of-type(1) {
+        right: -8.5%;
+        top: 50%;
+      }
+      .cabin:nth-of-type(2) {
+        right: 17%;
+        top: 93.5%;
+      }
+      .cabin:nth-of-type(3) {
+        right: 67%;
+        top: 93.5%;
+      }
+      .cabin:nth-of-type(4) {
+        left: -8.5%;
+        top: 50%;
+      }
+      .cabin:nth-of-type(5) {
+        left: 17%;
+        top: 7%;
+      }
+      .cabin:nth-of-type(6) {
+        right: 17%;
+        top: 7%;
+      }
 
-        .strut5{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 500px;
-            width: 10px;
-            background-color: black;
-            transform-origin: center bottom;
-            transform: translate(-50%, -100%) rotate(240deg);
+      @keyframes wheel {
+        0% {
+          transform: rotate(0deg);
         }
-
-        .strut6{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 500px;
-            width: 10px;
-            background-color: black;
-            transform-origin: center bottom;
-            transform: translate(-50%, -100%) rotate(300deg);
+        100% {
+          transform: rotate(360deg);
         }
-
-        .box1{
-            height: 100px;
-            width: 100px;
-            background-color: yellow;
-            transform: translate(-46px,20px) rotate(45deg);
+      }
+      @keyframes cabins {
+        0% {
+          transform: rotate(0deg);
         }
-
-        .box2{
-            height: 100px;
-            width: 100px;
-            background-color: yellow;
-            transform: translate(-46px,20px) rotate();
+        25% {
+          background-color: yellow;
         }
-
-        .box3{
-            height: 100px;
-            width: 100px;
-            background-color: yellow;
-            transform: translate(-46px,20px) rotate();
+        50% {
+          background-color: purple;
         }
-
-        .box4{
-            height: 100px;
-            width: 100px;
-            background-color: yellow;
-            transform: translate(-46px,20px) rotate();
+        100% {
+          transform: rotate(-360deg);
         }
-
-        .box5{
-            height: 100px;
-            width: 100px;
-            background-color: yellow;
-            transform: translate(-46px,20px) rotate();
-        }
-
-        .box6{
-            height: 100px;
-            width: 100px;
-            background-color: yellow;
-            transform: translate(-46px,20px) rotate();
-            
-        }
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="wheel">
-            <div class="strut1">
-                <div class="box1"></div>
-            </div>
-            <div class="strut2">
-                <div class="box2"></div>
-            </div>
-            <div class="strut3">
-                <div class="box3"></div>
-            </div>
-            <div class="strut4">
-                <div class="box4"></div>
-            </div>
-            <div class="strut5">
-                <div class="box5"></div>
-            </div>
-            <div class="strut6">
-                <div class="box6"></div>
-            </div>
-        </div>
+  </head>
+  <body>
+    <div class="wheel">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+
+      <div class="cabin"></div>
+      <div class="cabin"></div>
+      <div class="cabin"></div>
+      <div class="cabin"></div>
+      <div class="cabin"></div>
+      <div class="cabin"></div>
     </div>
-</body>
+  </body>
 </html>
